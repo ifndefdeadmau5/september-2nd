@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Box } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -27,14 +28,16 @@ export default function Header({ dark, handleChange }) {
   return (
     <AppBar position="static">
       <Toolbar className={classes.toolbar}>
-        <IconButton
+        <Link
+          to="/"
+          component={IconButton}
           edge="start"
           className={classes.menuButton}
           color="inherit"
           aria-label="menu"
         >
           <HomeIcon />
-        </IconButton>
+        </Link>
         <Box display="flex" alignItems="center">
           <Switch checked={dark} onChange={handleChange} />
           <IconButton

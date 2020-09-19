@@ -1,6 +1,7 @@
 import React from "react";
 import ProductThumbnail from "../components/ProductThumbnail";
 import { Grid, makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +32,22 @@ export default function ProductList() {
       <Grid container justify="center" spacing={3}>
         {products.map((props, i) => (
           <Grid key={i} item xs={12} lg={4}>
-            <ProductThumbnail {...props} />
+            {/* <Link
+              to={{
+                pathname: "/product",
+                state: props,
+              }}
+              component={ProductThumbnail}
+              {...props}
+            /> */}
+            <Link
+              to={{
+                pathname: "/product",
+                state: props,
+              }}
+            >
+              <ProductThumbnail {...props} />
+            </Link>
           </Grid>
         ))}
       </Grid>
